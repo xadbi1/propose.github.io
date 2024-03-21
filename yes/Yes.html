@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Go Out With Me?</title>
+    <style>
+        /* Your CSS code goes here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        #question-section {
+            display: block;
+        }
+        #date-section {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+        }
+        #yes-button {
+            background-color: #007bff;
+            color: #fff;
+        }
+        #no-button {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Animation for the "No" button */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .shake {
+            animation: shake 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="question-section">
+        <h1>Will You Go Out With Me?</h1>
+        <a href="Tea/date.html">
+
+        <button id="yes-button" onclick="askOut(true)">Yes</button>
+       </a>
+        <button id="no-button" onclick="askOut(false)">No</button>
+    </div>
+    <img src="Pictures/menhera-chan.gif">
+
+
+
+    <script>
+        function askOut(response) {
+            var questionSection = document.getElementById("question-section");
+            var dateSection = document.getElementById("date-section");
+
+            // If she says "Yes"
+            if (response) {
+                // Show the date section
+                dateSection.style.display = "block";
+                // Fade in the date section
+                dateSection.style.opacity = 1;
+                // Hide the question section after a delay
+                setTimeout(function() {
+                    questionSection.style.display = "none";
+                }, 1000); // Wait for 1 second (equal to the duration of the fade-in effect)
+            } else {
+                // If she says "No", add animation to the "No" button
+                var noButton = document.getElementById("no-button");
+                noButton.classList.add("shake");
+                // Remove animation class after 0.5 seconds
+                setTimeout(function() {
+                    noButton.classList.remove("shake");
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>

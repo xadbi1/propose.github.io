@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Im Excited To See You !</title>
+<img src="Pictures/new.gif">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  h1 {
+    color: #333;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: bounce 1s;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+  p {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    animation: fadeIn 1s;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .heart {
+    color: red;
+    font-size: 5em;
+    animation: pulse 1s infinite alternate;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  }
+  .heart:hover {
+    transform: scale(1.2);
+  }
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  .confetti {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    z-index: 0;
+    animation: confetti-fall linear 4s infinite;
+  }
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Im Excited To See You !</h1>
+  <p>Fi Placet Chocolate Ta3 Lmera Li Fatt 😉</p>
+  <i class="heart fa fa-heart fa-5x" onclick="showHeartBurst()"></i>
+</div>
+
+<script>
+function showHeartBurst() {
+  const heartBurstContainer = document.createElement('div');
+  heartBurstContainer.classList.add('heart-burst-container');
+  document.body.appendChild(heartBurstContainer);
+
+  const hearts = 20;
+  for (let i = 0; i < hearts; i++) {
+    const heart = document.createElement('i');
+    heart.classList.add('fa', 'fa-heart', 'fa-3x', 'heart-burst');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = Math.random() * 2 + 1 + 's';
+    heartBurstContainer.appendChild(heart);
+  }
+
+  setTimeout(() => {
+    heartBurstContainer.remove();
+  }, 3000);
+}
+
+function generateConfetti() {
+  const confettiContainer = document.createElement('div');
+  confettiContainer.classList.add('confetti-container');
+  document.body.appendChild(confettiContainer);
+
+  const confettiCount = 100;
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+    confettiContainer.appendChild(confetti);
+  }
+}
+
+generateConfetti();
+</script>
+
+</body>
+</html>
