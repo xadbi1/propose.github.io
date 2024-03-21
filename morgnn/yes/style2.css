@@ -1,0 +1,59 @@
+<style>
+/* Your CSS code goes here */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin-top: 50px;
+}
+h1 {
+    color: #333;
+}
+#question-section {
+    display: block;
+}
+#date-section {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+#yes-button {
+    background-color: #007bff;
+    color: #fff;
+}
+#no-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+button:hover {
+    opacity: 0.8;
+}
+/* Animation for the "No" button */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.shake {
+    animation: shake 0.5s ease;
+}
+</style>
